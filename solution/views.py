@@ -15,8 +15,8 @@ def index(request, **kwargs):
 
 #########-- htmx --##########
 def htmx_test(request):
-    text = request.POST.get("text")
-    return "<p>Yrehhhhhhhhhhhh</p>"
+    print("htmx works!!")
+    return 
 
 ##########-- Rendering to index the AI output --##########
 def makesoup(request):
