@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-2qieou0huaee_7udwd15bp**xa45d^k!b1wqc+qi-n4q(m@h-t
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["*.vercel.app", "127.0.0.1"]
+ALLOWED_HOSTS = ["google-form-analyzer.vercel.app", "127.0.0.1"]
 
 
 # Application definition
