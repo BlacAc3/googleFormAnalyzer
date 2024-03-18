@@ -1,0 +1,48 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Solution</title>
+    {% tailwind_css %}
+</head>
+<body class=" bg-slate-950 text-white flex flex-col items-center w-screen">
+    <nav class="w-full bg-slate-400 text-black flex items-center justify-between p-3 border-b border-b-black">
+        <h1 class="font-bold text-2xl">Form Solver</h1>
+        <a target="_blank" href="https://blacac3-portfolio.onrender.com/" class=" border border-black p-2 font-bold text-lg italic rounded-lg hover:border-slate-400 hover:bg-black hover:text-slate-400 cursor-pointer transition-colors duration-300">By Blac@c3</a>
+    </nav>
+
+    <form class="flex rounded-3xl w-fit mt-5 gap-4 p-4 items-center justify-start self-start m-0 md:w-1/2 sm:m-auto sm:flex-row " method="post" action="{% url 'makesoup' %}">
+        {% csrf_token %}
+        <input class="bg-slate-400 rounded-xl w-full text-black" placeholder="Paste Form Link" type="url" name="url" id="form-url">
+        <button class="p-2 border border-slate-300 w-fit rounded-lg hover:bg-slate-300 hover:text-black transition-colors duration-300" type="submit">Solve</button>
+    </form>
+
+    {% if boxes %}
+        <ul class=" flex flex-col gap-6 p-8 mt-4 self-start w-full">
+            <h1  class="font-bold mb-3 text-2xl ">Results</h1>
+            {% for box in boxes %}  
+                <li class="flex flex-row gap-2 sm:gap-4 text-white font-sans ">
+                    <h1 class="text-white  rounded-md w-fit">{{box.0}}</h1>
+                    <div class="flex flex-col w-full gap-2">
+                        <div class="flex italic">
+                            
+                            <h2 class="font-bold mr-2">Q: </h2>
+                            <div>{{box.1}}</div>
+                        </div>
+                        <div class="flex gap-4 border border-white p-4 rounded-lg">
+                            <div>{{box.2}}</div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %} 
+        </ul>
+    {% else %}
+        <h2 class="text-center w-auto m-auto mt-20 p-10 sm:p-20 rounded-lg font-bold text-lg self-center border">Get AI results of Google Forms</h2>
+    {% endif %}
+
+
+
+</body>
+</html>
