@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "solution",
     "tailwind",
     "theme",
+    "django_htmx",
     # "django_browser_reload",
 ]
 
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #other middleware
+    "django_htmx.middleware.HtmxMiddleware",
     # "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
